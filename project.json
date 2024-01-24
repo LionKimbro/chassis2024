@@ -1,0 +1,19 @@
+{
+  "ID": {
+    "GUID": "327ecfcd-0045-4e6d-9d1a-b8d445d4dd81",
+    "TAGURI": "lionkimbro@gmail.com,2024-01-18:project:chassis2024",
+    "NAME": "chassis2024"
+  },
+  "INFO": {
+    "TITLE": "Chassis 2024",
+    "DESC": "a standardized chassis for executing Python programs that fit a particular mold",
+    "TAGS": ["chassis", "python", "chassis2024"]
+  },
+  "TIMESTAMPS": {
+    "START_TEXT": "2024-01-18",
+    "START": 1705564800,
+    "CREATED_TEXT": "2024-01-21",
+    "CREATED": 1705890799
+  }
+}
+

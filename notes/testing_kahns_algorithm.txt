@@ -1,0 +1,18 @@
+date: 2024-01-21
+title: [Manually] Testing Kahn's Algorithm
+
+
+== Code ==
+
+import kahn
+
+fn = kahn.topological_sort
+
+A = [("A", "E"), ("E", "M"), ("M", "Z"), ("C", "E"), ("B", "C"), ("D", "Z"), ("C", "D"), ("D", "E"), ("foo", "M"), ("D", "foo")]
+
+B = [("A", "E"), ("E", "M"), ("M", "Z"), ("C", "E"), ("B", "C"), ("D", "Z"), ("C", "D"), ("D", "E"), ("E", "C")]
+
+print(fn(A))  # should be alphabetical; "foo" should be before M but after D
+print(fn(B))  # should report cycle detected
+
+

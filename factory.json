@@ -1,0 +1,12 @@
+{
+  "FACTORY2023V2": {
+    "PROJTYPE": "PYPACKAGE"
+  },
+  "EXPORT-IMPORT": {
+    "WORKINGDIR": [{"OBJECT": "FOLDER",
+                    "SRC": "src/chassis2024",
+                    "DEST": "chassis2024",
+                    "POLICY": "REPLACE"}]
+  }
+}
+    

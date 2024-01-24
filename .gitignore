@@ -1,0 +1,8 @@
+dist/
+venv/
+build/
+src/*.egg-info/
+__pycache__/
+*.pyc
+MARK.json
+.#*
