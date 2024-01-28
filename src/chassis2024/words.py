@@ -1,3 +1,5 @@
+# Copyright 2024 Lion Kimbro
+# SPDX-License-Identifier: BSD-3-Clause
 
 # CHASSIS2024_SPEC is the module attribute that is defined in
 # (chassis-package)/__init__.py to declare that this module is a

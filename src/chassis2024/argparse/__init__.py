@@ -1,3 +1,6 @@
+# Copyright 2024 Lion Kimbro
+# SPDX-License-Identifier: BSD-3-Clause
+
 """basic argument parsing component for chassis2024
 
 Perform argument processing with the python argparse module.

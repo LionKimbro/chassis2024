@@ -1,4 +1,5 @@
-
+# Copyright 2024 Lion Kimbro
+# SPDX-License-Identifier: BSD-3-Clause
 
 class Chassis2024Exception(Exception): pass
 

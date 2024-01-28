@@ -1,3 +1,6 @@
+# Copyright 2024 Lion Kimbro
+# SPDX-License-Identifier: BSD-3-Clause
+
 """Kahn's Algorithm -- for Topological Sort
 
 Given a list of edges, in the form:
