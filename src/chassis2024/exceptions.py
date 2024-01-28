@@ -8,3 +8,5 @@ class MultiplePackagesHandlingExecutionGraphNode(Chassis2024Exception): pass
 
 class MultipleDefinitionsOfInterface(Chassis2024Exception): pass
 
+class InterfaceUndefined(Chassis2024Exception): pass
+

@@ -9,9 +9,14 @@ CHASSIS2024_SPEC = "CHASSIS2024_SPEC"
 #   nodes, all of which are to be handled by the chassis package's
 #   perform_execution_graph_node("...") fn.
 EXECUTES_GRAPH_NODES = "EXECUTES_GRAPH_NODES"
-# INTERFACES -- a list of string names of interfaces, linked to
+# EXECUTION_GRAPH_SEQUENCES -- a list of string names of execution
+#   graph nodes that must all follow after one another (though not
+#   necessarily immediately after one another)
+EXECUTION_GRAPH_SEQUENCES = "EXECUTION_GRAPH_SEQUENCES"
+# INTERFACES -- a sequence of string names of interfaces, linked to
 #   objects (typically: Python modules) that implement specific
 #   interfaces (a collection of attributes and methods.)
+#   ex: ("A", "B", "C", "M", "S", "W", "Z")
 INTERFACES = "INTERFACES"
 
 # MAJOR STAGES

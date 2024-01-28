@@ -2,6 +2,8 @@
 import sys
 import traceback
 
+import chassis2024
+
 from .words import *
 from .exceptions import *
 from . import kahn
@@ -14,7 +16,6 @@ kPERFORM_EXECUTION_GRAPH_NODE_FN = "perform_execution_graph_node"
 
 # globals
 
-execution_spec = {}  # user supplied execution specification
 chassis2024_package_objs = []  # [module object, ...]
 execution_node_handlers = {}  # {str:node name: module object w/ perform_execution_graph_node(node name)}
 execution_graph_sequences = []  # [(str:node name (before), str:node name (after), ...]
@@ -26,14 +27,14 @@ exception_type_value_tracebacks_encountered = []  # [(type, val, tb), ...]
 
 # main functionality
 
-def run(execution_spec_):
+def run(execution_spec):
     _init()
     _populate_major_stages()
-    execution_spec.update(execution_spec_)
+    chassis2024.execution_spec.update(execution_spec)
     _locate_chassis2024_packages()
     _kahn()
     _execute()
-    _call_before_termination_callbacks():
+    _call_before_termination_callbacks()
     _report_exceptions()
 
 def call_before_termination(cb):
@@ -42,7 +43,7 @@ def call_before_termination(cb):
 
 def _init():
     """Clear all globals."""
-    execution_spec.clear()
+    chassis2024.execution_spec.clear()
     del chassis2024_package_objs[:]
     execution_node_handlers.clear()
     del execution_graph_sequences[:]
@@ -53,30 +54,38 @@ def _init():
 
 
 def _populate_major_stages():
+    _define_execution_sequence(kMAJOR_STAGES)
+
+def _define_execution_sequence(graph_sequence):
     i = 0
-    for i in range(len(kMAJOR_STAGES)-1):
-        execution_graph_sequences.append((kMAJOR_STAGES[i],
-                                          kMAJOR_STAGES[i+1]))
+    for i in range(len(graph_sequence)-1):
+        execution_graph_sequences.append((graph_sequence[i],
+                                          graph_sequence[i+1]))
 
 
 def _locate_chassis2024_packages():
     for module_name, module_object in sys.modules.items():
         D = getattr(module_object, CHASSIS2024_SPEC, None)
-        if D is not None:
+        if ((D is not None) and
+            (D is not CHASSIS2024_SPEC)):  # ignore words.py
             # Remember this module in global memory.
             chassis2024_package_objs.append(module_object)
 
             # Now store the graph nodes that it handles.
-            for execution_graph_node in D[EXECUTES_GRAPH_NODES]:
+            for execution_graph_node in D.get(EXECUTES_GRAPH_NODES, []):
                 if execution_graph_node in execution_node_handlers:
                     error_info = {PACKAGE: moduleobj,
                                   EXECUTION_GRAPH_NODE: execution_graph_node}
                     raise MultiplePackagesHandlingExecutionGraphNode(error_info)
                 else:
-                    execution_node_handlers[execution_graph_node] = moduleobj
+                    execution_node_handlers[execution_graph_node] = module_object
 
+            # And note the graph edges that it requires.
+            for graph_sequence in D.get(EXECUTION_GRAPH_SEQUENCES, []):
+                _define_execution_sequence(graph_sequence)
+            
             # Now store interfaces that it provides implementations for.
-            for k, v in D.get(INTERFACES, {}):
+            for k, v in D.get(INTERFACES, {}).items():
                 if k in interfaces:
                     error_info = {PACKAGE: moduleobj,
                                   INTERFACE: k,
@@ -104,7 +113,15 @@ def _execute():
                 # An AttributeError will be raised if it isn't found -- rightly so.
                 fn = getattr(pkg, kPERFORM_EXECUTION_GRAPH_NODE_FN)  # pkg.perform_execution_graph_node("...")
                 fn(execution_graph_node)
-    except:  # Yes, I really want to capture EVERYTHING.
+    # TODO: This should be configured through the system.
+    #       When you import chassis2024.argparse,
+    #       the CHASSIS2024_SPEC should include that
+    #       SystemExit is permitted to pass through.
+    #   Similarly, other modules could permit KeyboardInterrupt,
+    #   and such, to pass through.
+    except SystemExit:
+        raise
+    except:  # Yes, I really want to capture EVERYTHING else.
         _record_exception_details()
 
 
