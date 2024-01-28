@@ -2,7 +2,7 @@
 written: 2024-01-21
 
 #### Project Summary
-> a standardized chassis for executing Python programs that fit a particular mold
+> a flexible chassis for assembling Python programs from parts
 
 #### Installation
 

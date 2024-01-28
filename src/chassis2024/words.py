@@ -19,6 +19,11 @@ EXECUTION_GRAPH_SEQUENCES = "EXECUTION_GRAPH_SEQUENCES"
 #   ex: ("A", "B", "C", "M", "S", "W", "Z")
 INTERFACES = "INTERFACES"
 
+# common interfaces
+RUN = "RUN"  # basicrun: .run()
+ARGPARSE = "ARGPARSE"  # argparse: .parser, .args
+PERSISTENCE_DATA = "PERSISTENCE_DATA"  # basicjsonpersistence: .data, .save()
+
 # MAJOR STAGES
 CLEAR = "CLEAR"
 RESET = "RESET"

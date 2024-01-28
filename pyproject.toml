@@ -10,7 +10,7 @@ authors = [
   { name="Lion Kimbro", email="lionkimbro@gmail.com" },
 ]
 
-description = "a standardized chassis for executing Python programs that fit a particular mold"
+description = "a flexible chassis for assembling Python programs from parts"
 
 readme = "README.txt"
 

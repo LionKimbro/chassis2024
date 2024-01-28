@@ -6,7 +6,7 @@
   },
   "INFO": {
     "TITLE": "Chassis 2024",
-    "DESC": "a standardized chassis for executing Python programs that fit a particular mold",
+    "DESC": "a flexible chassis for assembling Python programs from parts",
     "TAGS": ["chassis", "python", "chassis2024"]
   },
   "TIMESTAMPS": {
