@@ -55,7 +55,7 @@ The second import is a little more mysterious:
 
 What is ```chassis2024.basicrun```?  It's one of the built-in infrastructure package that ships with chassis2024.
 
-Chassis 2024 programs are assembled from *infrastructure.*  Infrastructure basically means: memory allocations, and steps that must be followed, and followed in a particular order.  Infrastructure is all about *following steps* and *keeping promises*.  Mainly Chassis 2024 concerns itself with the promises of: "step B will happen after step A, but  before step C."
+Chassis 2024 programs are assembled from *infrastructure.*  Infrastructure basically means: memory allocations, and steps that must be followed, and followed at a particular time.
 
 What ```chassis2024.basicrun``` does, is that *after everything else is set up,* it will call a *```run()```* function.
 

@@ -1,6 +1,5 @@
 
 
-
 ### An Example: Echo (with Persistence)
 
 This time, we're adding data persistence to the program.
@@ -62,5 +61,18 @@ def run():
 
 
 if __name__ == "__main__":
-    chassis2024.run()
+    chassis2024.run(EXECUTION_SPEC)
 ```
+
+
+### Noticing
+
+What's new here?
+
+* ```import chassis2024.basicjsonpersistence```  -- More infrastructure: the ```chassis2024.basicjsonpersistence``` infrastructure.
+* ```EXECUTION_SPEC```  -- it's defined just after the EXECUTION_SPEC, and then passed as an argument to ```chassis2024.run```.
+* ```chassis2024.basicjsonpersistence.argparse_configure(parser)```  -- a call within ```argparse_configure(parser)```.
+* ```D = chassis2024.interface(PERSISTENCE_DATA, required=True).data()```  -- in the *```run()```* routine, persistence data is accessed via interface.
+
+
+
