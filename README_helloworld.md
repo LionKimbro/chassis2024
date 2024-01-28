@@ -41,6 +41,8 @@ So, what are we looking at here?
 
 We'll talk about these piece by piece.
 
+![visual breakdown of the code](https://github.com/LionKimbro/chassis2024/blob/main/img/helloworld_code_explanation.png?raw=true)
+
 ### Imports
 
 The first import is straightforward:
@@ -143,6 +145,8 @@ def run():
 if __name__ == "__main__":
     chassis2024.run()
 ```
+
+![visual breakdown of the code's structure](https://github.com/LionKimbro/chassis2024/blob/main/img/helloworld_structure.png?raw=true)
 
 * First, it imports the ```chassis2024``` system itself.
 * Then, it imports the ```chassis2024.basicrun``` infrastructure.
