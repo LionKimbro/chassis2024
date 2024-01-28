@@ -17,6 +17,6 @@ CHASSIS2024_SPEC = {
 
 def perform_execution_graph_node(n):
     if n == UP:
-        chassis2024.interface(RUN).run()
+        chassis2024.interface(RUN, required=True).run()
 
 
