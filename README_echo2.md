@@ -6,7 +6,7 @@ This time, we're adding data persistence to the program.
 
 Here, you can begin to see the power of the chassis2024 system, start to show up.
 
-This example (builds atop the first echo.py example)[README_echo.md], which itself (builds atop the helloworld.py example, ...)[README_helloworld.md]  Read those first, before attempting this example.
+This example [builds atop the first echo.py example](README_echo.md), which itself [builds atop the helloworld.py example, ...](README_helloworld.md)  Read those first, before attempting this example.
 
 
 ```
