@@ -29,10 +29,18 @@ The central challenge was making sure that everything runs in the right order.
 ### Learn More
 
 Learn By Example (Tutorial Material):
-* 🙆 ["Hello, world!"](README_helloworld.md) -- see a "Hello, world!" example -- concepts: "infrastructure," "CHASSIS2024_SPEC", "interfaces" -- infrastructure: ```basicrun```
-* 🙆 ["(Echo!)"](README_echo.md) -- a slightly more complex example -- concepts: calling interfaces, "words" -- infrastructure: ```argparse```
-* ⚠ 工事中 -- [Echo with persistence](README_echo2.md) -- a still more complex example -- concepts: "execution specs" -- infrastructure: ```basicjsonpersistence```
-* 🙅 [???](README_writing.md) -- write a piece of infrastructure, for inclusion elsewhere -- concepts: "execution graph", "execution nodes", "main execution nodes"
+* 🙆 ["Hello, world!"](README_helloworld.md) -- see a "Hello, world!" example
+  * concepts: "infrastructure," "CHASSIS2024_SPEC", "interfaces"
+  * infrastructure: ```basicrun```
+* 🙆 ["(Echo!)"](README_echo.md) -- a slightly more complex example
+  * concepts: calling interfaces, "words"
+  * infrastructure: ```argparse```
+* ⚠ 工事中 -- [Echo with persistence](README_echo2.md) -- a still more complex example
+  * concepts: "execution specs"
+  * infrastructure: ```basicjsonpersistence```
+* 🙅 [???](README_writing.md) -- write a piece of infrastructure, for inclusion elsewhere
+  * concepts: "execution graph", "execution nodes", "main execution nodes"
+  * infrastructure: (???)
 
 Learn By Concepts (Reference Material):
 * 🙅 -- [Infrastructure Packages](README_chassis2024spec.md) -- infrastructure packages are marked with a special identifier, ```CHASSIS2024_SPEC```
