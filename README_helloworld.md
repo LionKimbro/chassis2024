@@ -1,11 +1,15 @@
 
-### An Example: Hello, world!
+### Understanding the Basics via Hello, World!
 
 Here's a "Hello, world!" program.
 
 Copy it into a file called ```helloworld.py```, and run it.
 
+(If you don't have chassis2024 installed, run ```pip install chassis2024``` to install it, first.)
+
 ```
+# helloworld.py
+
 import sys
 
 import chassis2024
@@ -32,8 +36,8 @@ if __name__ == "__main__":
 So, what are we looking at here?
 
 * **imports** -- There are two imports:
-  * ```chassis2024```
-  * ```chassis2024.basicrun```
+  * ```import chassis2024```
+  * ```import chassis2024.basicrun```
 * **```CHASSIS2024_SPEC```** -- a dictionary, with one key:
   * ```"INTERFACES"``` -- a declaration of an interface binding, specifically, ...
     * **```"RUN"```** -- the name of an interface, implemented by...
@@ -43,27 +47,31 @@ We'll talk about these piece by piece.
 
 ![visual breakdown of the code](https://github.com/LionKimbro/chassis2024/blob/main/img/helloworld_code_explanation.png?raw=true)
 
-### Imports
+### import chassis2024
 
-The first import is straightforward:
-
-```import chassis2024```
+The first import is straightforward: ```import chassis2024```
 
 That loads the chassis2024 system into memory (```sys.modules``` specifically).
 
-The second import is a little more mysterious:
+### import chassis2024.basicrun
 
-```import chassis2024.basicrun```
+The second import is a little more mysterious: ```import chassis2024.basicrun```
 
 What is ```chassis2024.basicrun```?  It's one of the built-in infrastructure package that ships with chassis2024.
 
-Chassis 2024 programs are assembled from *infrastructure.*  Infrastructure basically means: memory allocations, and steps that must be followed, and followed at a particular time.
+Chassis 2024 programs are assembled from **infrastructure**.  Infrastructure basically means: a part of the system that has steps that must be followed, and that must be followed at particular times.
 
 What ```chassis2024.basicrun``` does, is that *after everything else is set up,* it will call a *```run()```* function.
 
-Which *run()* function will it run?  We'll get to that.
+Q: "Which *run()* function will it run?"
 
-The key thing to understand right now, is that:
+A: We'll get to that.
+
+Q: "How does it time things?"
+
+A: We'll get to that -- much *later.*  It's a critical question, and central to what chassis2024 is, and how it works, but I can't answer that right now.  Just trust that there are ways to control timings.  But it's a good question to bear in mind.
+
+The key things to understand right now, are that:
 
 * ```import chassis2024``` -- This line imports the Chassis 2024 system as a whole, and...
 * ```import chassis2024.basicrun``` -- ...this line includes the "basic run" infrastructure into our program's execution.
@@ -84,36 +92,38 @@ CHASSIS2024_SPEC = {
 
 The Chassis 2024 system sees a definition of CHASSIS2024_SPEC, and recognizes, "This module is *infrastructure*."
 
-**All** infrastructure packages and modules define ```CHASSIS2024_SPEC```.
+*All* infrastructure packages and modules define ```CHASSIS2024_SPEC```.
 
 Yes: ```chassis2024.basicrun``` has a ```CHASSIS2024_SPEC``` block at the top of it's implementation, because it is an infrastructure package, and all infrastructure packages define ```CHASSIS2024_SPEC```.
 
-The Chassis 2024 system doesn't stop with recognizing "this is infrastructure," though -- it also *processes* the definition.
+The Chassis 2024 system doesn't stop with recognizing "this is infrastructure," though -- it also *uses* the data that ```CHASSIS2024_SPEC``` is assigned to.
 
 ### "INTERFACES" and the "RUN" interface
 
-So, what does ```chassis2024``` make of ```"INTERFACES"```, and the ```"RUN"``` interface?
+Look again at the ```CHASSIS2024_SPEC``` definition:
 
-This code in ```helloworld.py```...
 
 ```
 CHASSIS2024_SPEC = {
     "INTERFACES": {"RUN": sys.modules[__name__]}
 }
 ```
-...is a declaration that the ```helloworld.py``` module (referring to itself via: ```sys.modules[__name__]```) is the module to look to, when any piece of infrastructure is looking for the ```"RUN"``` interface.
 
-**Interfaces are how infrastructure finds infrastructure.**  ```helloworld.py```, in writing this, is declaring that it is implementing the ```"RUN"``` interface.
+What does ```chassis2024``` make of ```"INTERFACES"```?  And what is the ```"RUN"``` interface all about?
+
+This is a declaration to ```chassis2024``` binding "interfaces."  In particular, it's binding the ```"RUN"``` interface to the immediate module (```helloworld.py``` -- referring to itself via ```sys.modules[__name__]```).
+
+**Interfaces are how infrastructure finds infrastructure.**  ```helloworld.py```, in writing this, is declaring that it is implementing the ```"RUN"``` interface.  Whenever someone asks ```chassis2024``` for the ```"RUN"``` interface implementor, it'll return the ```helloworld``` module back to the caller.
 
 **Each interface can only be implemented by a single module.**  Interfaces have a "zero or one" relationship with the modules that implement them:  Either it's implemented, or it's not, and if it's implemented, it's implemented by only one single module.
 
 If multiple modules attempt to implement the same interface, an exception is raised (```MultipleDefinitionsOfInterface```).
 
-Interfaces are *not* rigorously defined by Chassis 2024.  There are no schema, no classes and no objects,  there are no systems of self-documentation and publishing.  Rather, an interface is simply defined by a string identifier (like "RUN"), and by the expectations of use between infrastructure that use an interface, and infrastructure that meets an interface.
+What an interface is good for is *not* rigorously defined by Chassis 2024.  There are no schemas, no interface classes and no interface definition objects,  there are no systems for discovery, or for publishing.  Rather, an interface is simply defined by a string identifier (like "RUN"), and by the expectations of use between the infrastructure that uses an interface, and infrastructure that meets an interface, held in the mind of the programmer(s).
 
-When ```chassis2024.basicrun``` gets a hold of the thing at the other end of the ```"RUN"``` interface (```helloworld.py```, in this case,) it simply calls the *```run()```* function on it.
+When ```chassis2024.basicrun``` gets a hold of the thing at the other end of the ```"RUN"``` interface (```helloworld.py```, in this case,) it simply calls the *```run()```* function on it.  If it's not implemented, some sort of exception will be raised -- whatever exception is raised when you make a function call that isn't defined.  Your code will be in error.
 
-Hence, this code, later in ```helloworld.py```:
+```helloworld.py``` does not want to be in error, hence it implements the *```run()```* function:
 
 ```
 # interface: RUN
@@ -164,7 +174,7 @@ if __name__ == "__main__":
   * When the system is up (in the "UP" execution node,) ```chassis2024.basicrun``` will call the ```"RUN"``` interface's *```run()```* method ...
   * ...which means that ```helloworld.run()``` is what will be called.
 
-### Though Experiments
+### Thought Experiments
 
 #### Thought Experiment #1: Implementing RUN in a different module.
 
@@ -176,7 +186,7 @@ Q: "Oh, okay, -- but, -- what if I had taken out the CHASSIS2024_SPEC declaratio
 
 A: That'd be okay then.  It'd call the ```run()``` function on the other module, then.
 
-#### Thought Experiment #2:
+#### Thought Experiment #2: What if nobody implements RUN?
 
 Q: "What if nobody implemented RUN?"
 
