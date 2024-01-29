@@ -48,4 +48,5 @@ Learn By Concepts (Reference Material):
 * 🙅 -- [Interfaces](README_interfaces.md) -- "interfaces," a way that infrastructure pieces can find one another
 * 🙅 -- [Execution Spec](README_executionspec.md) -- the optional execution spec, which can configure execution
 
-
+Announcements:
+* [r/madeinpython -- Infrastructure Loading System: Chassis](https://www.reddit.com/r/madeinpython/comments/1ae8h3c/infrastructure_loading_system_chassis/)
