@@ -2,6 +2,17 @@ title: Chassis 2024 notes
 date: 2024-01-21
 
 
-== 2024-01-21 ==
-date: 2024-01-21
+== Relevant Web Resources ==
+date: 2024-01-29
+
+"What non web-oriented Python frameworks exist?"
+https://stackoverflow.com/questions/1368364/what-non-web-oriented-python-frameworks-exist
+Jan 2024
+
+
+Component Frameworks in Python
+  Web Components with Zope 3
+  https://www.amazon.com/dp/354076447X
+  
+
 
