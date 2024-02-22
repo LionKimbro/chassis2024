@@ -14,5 +14,10 @@ Component Frameworks in Python
   Web Components with Zope 3
   https://www.amazon.com/dp/354076447X
   
+Wireup -- https://maldoinc.github.io/wireup/0.7.0/services/
+
+Pluggy -- https://pluggy.readthedocs.io/en/stable/
+
+
 
 
