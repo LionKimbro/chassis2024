@@ -38,9 +38,9 @@ Learn By Example (Tutorial Material):
 * ⚠ 工事中 -- [Echo with persistence](README_echo2.md) -- an "Echo" service that remembers prior invocations
   * concepts: execution specs
   * infrastructure: ```basicjsonpersistence```
-* 🙅 [???](README_writing.md) -- writing infrastructure: a pid file
+* ⚠ 工事中 -- [pygame infrastructure](README_pygame.md) -- writing infrastructure: pygame
   * concepts: the execution graph, execution nodes
-  * infrastructure: (???)
+  * infrastructure: (a pygame loader, the object of the example)
 
 Learn By Concepts (Reference Material):
 * 🙅 -- [Infrastructure Packages](README_chassis2024spec.md) -- infrastructure packages are marked with a special identifier, ```CHASSIS2024_SPEC```
