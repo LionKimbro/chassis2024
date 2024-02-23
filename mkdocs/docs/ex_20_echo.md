@@ -10,7 +10,7 @@ We're building on top of knowledge from the last program, ```helloworld.py```.
 
 ```echo.py```:
 
-```
+``` py
 import sys
 
 import chassis2024
@@ -65,7 +65,7 @@ What it does is -- after the modules have been cleared and reset [(which you can
 
 It's populated by calling the ```ARGPARSE_CONFIGURE``` interface implementation (which: in this case, is defined to be in ```echo.py```):
 
-```
+``` py
 CHASSIS2024_SPEC = {
     INTERFACES: {RUN: this_module,
                  ARGPARSE_CONFIGURE: this_module}
@@ -76,7 +76,7 @@ Now, the argument parser, we must be clear, is [the Python "batteries included" 
 
 If you understand argparse.ArgumentParser, though, then this will be clear:
 
-```
+``` py
 # interface: ARGPARSE_CONFIGURE
 def argparse_configure(parser):
     parser.add_argument("-e", "--echo",
@@ -92,7 +92,7 @@ That's the very next subject.
 
 It's in this code, here:
 
-```
+``` py
 #interface: RUN
 def run():
     argparser = chassis2024.interface(ARGPARSE, required=True)
@@ -130,14 +130,14 @@ OK.
 
 This is really basic.
 
-```
+``` py
 from chassis2024.words import *
 from chassis2024.argparse.words import *
 ```
 
 I'll show you what the text of ```chassis2024.words``` looks like, somewhat abbreviated:
 
-```
+``` py
 # Copyright 2024 Lion Kimbro
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -177,7 +177,7 @@ I use "words" for three reasons:
 
 So, as before, a revisiting of the ```echo.py``` example as a totality:
 
-```
+``` py
 import sys
 
 import chassis2024

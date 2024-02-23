@@ -24,3 +24,23 @@ nav:
     - 'Ex #1: Hello, world!': 'ex_10_helloworld.md'
     - 'Ex #2: Echo': 'ex_20_echo.md'
     - 'Ex #3: Echo 2': 'ex_30_echo2.md'
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+copyright: |
+  &copy; 2024 <a href="https://github.com/lionkimbro"  target="_blank" rel="noopener">Lion Kimbro</a>

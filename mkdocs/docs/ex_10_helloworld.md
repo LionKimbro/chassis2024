@@ -7,7 +7,7 @@ Copy it into a file called ```helloworld.py```, and run it.
 
 (If you don't have chassis2024 installed, run ```pip install chassis2024``` to install it, first.)
 
-```
+``` py
 # helloworld.py
 
 import sys
@@ -84,7 +84,7 @@ If you've got just that, you're good for the next piece.
 
 In our ```helloworld.py``` example, we have this declaration:
 
-```
+``` py
 CHASSIS2024_SPEC = {
     "INTERFACES": {"RUN": sys.modules[__name__]}
 }
@@ -103,7 +103,7 @@ The Chassis 2024 system doesn't stop with recognizing "this is infrastructure," 
 Look again at the ```CHASSIS2024_SPEC``` definition:
 
 
-```
+``` py
 CHASSIS2024_SPEC = {
     "INTERFACES": {"RUN": sys.modules[__name__]}
 }
@@ -125,7 +125,7 @@ When ```chassis2024.basicrun``` gets a hold of the thing at the other end of the
 
 ```helloworld.py``` does not want to be in error, hence it implements the *```run()```* function:
 
-```
+``` py
 # interface: RUN
 def run():
     print("Hello, world!")
@@ -135,7 +135,7 @@ def run():
 
 OK, so -- you should be able to understand the program now:
 
-```
+``` py
 import sys
 
 import chassis2024
@@ -194,7 +194,7 @@ A: When it comes time to get the RUN interface, which is required by basicspec, 
 
 Here's the relevant code from ```chassis2024/basicrun/__init__.py```:
 
-```
+``` py
 def perform_execution_graph_node(n):
     if n == UP:
         chassis2024.interface(RUN, required=True).run()
@@ -202,7 +202,7 @@ def perform_execution_graph_node(n):
 
 ...you can see it has "required=True" set, in it's call to resolve the interface, and then in ```chassis2024/__init__.py```,  ...
 
-```
+``` py
 def interface(interface_name, required=False):
     """Access the object registered for a given interface.
     
