@@ -169,7 +169,7 @@ if __name__ == "__main__":
     * It will find ```helloworld.py```.
       * It will note down that ```helloworld.py``` implements the ```"RUN"``` interface.
     * It will find ```chassis2024.basicrun```.
-  * It will then assemble the execution graph.  [(You can skip ahead if you want to read more about the execution graph right away.)](README_executionnode.md)
+  * It will then assemble the execution graph.  [(You can skip ahead if you want to read more about the execution graph right away.)](ref_executionnode.md)
   * It will then execute all of the execution nodes.
   * When the system is up (in the "UP" execution node,) ```chassis2024.basicrun``` will call the ```"RUN"``` interface's *```run()```* method ...
   * ...which means that ```helloworld.run()``` is what will be called.
@@ -222,6 +222,6 @@ See?  If ```required``` is ```true```, (and it is in the call from the ```basicr
 
 You arrive at a T-Junction.
 
-You can [go left, to the Chassis 2024 title page.](README.md)
+You can [go left, to the Chassis 2024 title page.](index.md)
 
-You can [go right, to the next example tutorial...](README_echo.md)
+You can [go right, to the next example tutorial...](ex_20_echo.md)

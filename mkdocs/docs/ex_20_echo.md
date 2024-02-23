@@ -6,7 +6,7 @@ Here's an "Echo" program.
 
 We're building on top of knowledge from the last program, ```helloworld.py```.
 
-[(I strongly urge you to read that one, before attempting this one.)](ERASEME_helloworld.md).
+[(I strongly urge you to read that one, before attempting this one.)](ex_10_helloworld.md).
 
 ```echo.py```:
 
@@ -61,7 +61,7 @@ OK, things to notice:
 
 The most important piece here, is the incorporation of the ```chassis2024.argparse``` infrastructure.
 
-What it does is -- after the modules have been cleared and reset [(which you can learn more about in the section on the execution graph, -- you might want to just take a peek at, real quick,)](README_executionnode.md) the argument parser is assembled, and then populated.  By "populated," I mean: arguments are defined on the argument parser.
+What it does is -- after the modules have been cleared and reset [(which you can learn more about in the section on the execution graph, -- you might want to just take a peek at, real quick,)](ref_executionnode.md) the argument parser is assembled, and then populated.  By "populated," I mean: arguments are defined on the argument parser.
 
 It's populated by calling the ```ARGPARSE_CONFIGURE``` interface implementation (which: in this case, is defined to be in ```echo.py```):
 
@@ -101,7 +101,7 @@ def run():
 
 The first thing that the *```echo.run()```* function does, is load the ```"ARGPARSE"``` interface.
 
-The ```chassis2024.argparse``` package implements it.  The implementation of "ARGPARSE" essentially means that it has two identifiers defined on it:  ```.parser```, and ```.args```.  After the parse happens [(and we'll talk about the execution nodes and timing,)](README_executionnode.md) then ```.args``` has the arguments loaded into it, by the time *```run()```* is called.
+The ```chassis2024.argparse``` package implements it.  The implementation of "ARGPARSE" essentially means that it has two identifiers defined on it:  ```.parser```, and ```.args```.  After the parse happens [(and we'll talk about the execution nodes and timing,)](ref_executionnode.md) then ```.args``` has the arguments loaded into it, by the time *```run()```* is called.
 
 Since the ```RUN``` interface is called by ```chassis2024.basicrun``` as the last thing in the execution graph, it's guaranteed to be filled by this time.
 

@@ -1,5 +1,3 @@
-
-
 # Chassis 2024
 
 Automatically sequence infrastructure initialization and teardown.
@@ -12,7 +10,9 @@ pip install chassis2024
 
 ### Brief Explanation
 
-The idea is to make it so that you quickly reuse infrastructure components.
+*(This is just a teaser.  [Read the github.io pages for more details and a full tutorial.](https://lionkimbro.github.io/chassis2024/))*
+
+The idea of chassis2024 to make it so that you quickly reuse infrastructure.
 
 "Infrastructure" here means things like:
 * writing a lock file for your program
@@ -21,32 +21,121 @@ The idea is to make it so that you quickly reuse infrastructure components.
 * populating and processing argparse
 * reading a persistence file, and writing back to it when closing
 
-I wanted to make it trivial to combine these infrastructure together.
+I wanted to make it trivial to combine infrastructure like these, together.
 
-The central challenge was making sure that everything runs in the right order.
+The central challenge was making sure that infrastructure steps are followed in the correct order.
 
 
-### Learn More
+### An Example: Hello, world!
 
-Learn By Example (Tutorial Material):
-* 🙆 ["Hello, world!"](README_helloworld.md) -- see a "Hello, world!" example
-  * concepts: infrastructure, the CHASSIS2024_SPEC, interfaces
-  * infrastructure: ```basicrun```
-* 🙆 ["(Echo!)"](README_echo.md) -- an "Echo" service, that responds to the CLI
-  * concepts: using interfaces, words
-  * infrastructure: ```argparse```
-* ⚠ 工事中 -- [Echo with persistence](README_echo2.md) -- an "Echo" service that remembers prior invocations
-  * concepts: execution specs
-  * infrastructure: ```basicjsonpersistence```
-* 🙅 [???](README_writing.md) -- writing infrastructure: a pid file
-  * concepts: the execution graph, execution nodes
-  * infrastructure: (???)
+Here's a "Hello, world!" program:
 
-Learn By Concepts (Reference Material):
-* 🙅 -- [Infrastructure Packages](README_chassis2024spec.md) -- infrastructure packages are marked with a special identifier, ```CHASSIS2024_SPEC```
-* 🙅 -- [Execution Nodes, Execution Graph](README_executionnode.md) -- the execution graph, the key ordering principle behind the system
-* 🙅 -- [Interfaces](README_interfaces.md) -- "interfaces," a way that infrastructure pieces can find one another
-* 🙅 -- [Execution Spec](README_executionspec.md) -- the optional execution spec, which can configure execution
+```
+import sys
 
-Announcements:
-* [r/madeinpython -- Infrastructure Loading System: Chassis](https://www.reddit.com/r/madeinpython/comments/1ae8h3c/infrastructure_loading_system_chassis/)
+import chassis2024
+import chassis2024.basicrun
+
+
+CHASSIS2024_SPEC = {
+    "INTERFACES": {"RUN": sys.modules[__name__]}
+}
+
+
+# interface: RUN
+def run():
+    print("Hello, world!")
+
+
+if __name__ == "__main__":
+    chassis2024.run()
+```
+
+## Execution Nodes
+
+Chassis 2024 infrastructure positions itself  within an execution graph.
+
+By default, the execution graph is very basic:
+
+* #1 **CLEAR** -- the program begins
+* #2 **RESET** -- the program is initialized
+* #3 **ARGPARSE** -- Command Line arguments are parsed
+* #4 **CONNECT** -- files are loaded, resources are connected
+* #5 **ACTIVATE** -- user interface systems are activated
+* #6 **UP** -- the program is running, main loop operations commense
+
+This built-in system is fixed, but there is no default implementation, and it is very flexible, because Chassis 2024 infrastructure can extend the graph via module declarations.
+
+An example from the ```chassis2024.argparse``` package:
+
+```
+CHASSIS2024_SPEC = {
+    EXECUTES_GRAPH_NODES: [CLEAR_ARGPARSE, RESET_ARGPARSE, ARGPARSE],
+    EXECUTION_GRAPH_SEQUENCES: [(CLEAR, CLEAR_ARGPARSE, RESET, RESET_ARGPARSE, ARGPARSE)],
+    INTERFACES: {ARGPARSE: sys.modules[__name__]}
+}
+```
+
+## Interfaces
+
+The infrastructure pieces glue to one another through "interfaces."  Any object or module can be at the end of an interface, but ***only one*** thing can implement a given interface.
+
+Similarly, each execution node can activate ***only one*** function.
+
+## More Complex Example
+
+```
+
+import sys
+
+import chassis2024
+import chassis2024.basicrun
+import chassis2024.argparse
+import chassis2024.basicjsonpersistence
+from chassis2024.words import *
+from chassis2024.argparse.words import *
+from chassis2024.basicjsonpersistence.words import *
+
+
+this_module = sys.modules[__name__]
+
+
+CHASSIS2024_SPEC = {
+    INTERFACES: {RUN: this_module,
+                 ARGPARSE_CONFIGURE: this_module}
+}
+
+EXECUTION_SPEC = {
+    BASICJSONPERSISTENCE: {
+        SAVE_AT_EXIT: True,
+        CREATE_FOLDER: False,
+        FILEPATH: "./echo_persistence_data.json"
+    }
+}
+
+
+# interface: ARGPARSE_CONFIGURE
+def argparse_configure(parser):
+    parser.add_argument("-e", "--echo",
+                        help="input string to echo",
+                        default=None)
+    parser.add_argument("-r", "--repeat-last",
+                        dest="repeat",
+                        help="repeat the last used echo string",
+                        action="store_true")
+    chassis2024.basicjsonpersistence.argparse_configure(parser)
+
+# interface: RUN
+def run():
+    argparser = chassis2024.interface(ARGPARSE, required=True)
+    D = chassis2024.interface(PERSISTENCE_DATA, required=True).data()
+    if argparser.args.echo is not None:
+        print(argparser.args.echo)
+        D["msg"] = argparser.args.echo  # saved automatically
+    else:
+        print(D.get("msg", "use -e to specify string to echo"))
+
+
+if __name__ == "__main__":
+    chassis2024.run()
+```

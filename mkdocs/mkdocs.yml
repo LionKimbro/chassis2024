@@ -18,3 +18,9 @@ theme:
       primary: teal
       accent: purple
 
+nav:
+  - 'Chassis 2024': 'index.md'
+  - 'Tutorial':
+    - 'Ex #1: Hello, world!': 'ex_10_helloworld.md'
+    - 'Ex #2: Echo': 'ex_20_echo.md'
+    - 'Ex #3: Echo 2': 'ex_30_echo2.md'
