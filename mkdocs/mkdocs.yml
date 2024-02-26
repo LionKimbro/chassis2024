@@ -1,3 +1,4 @@
+
 site_name: chassis2024 Documentation
 
 theme:
@@ -20,11 +21,19 @@ theme:
 
 nav:
   - 'Chassis 2024': 'index.md'
+  - 'Introduction': 'intro.md'
   - 'Tutorial':
     - 'Concepts': 'concepts.md'
     - 'Ex #1: Hello, world!': 'ex_10_helloworld.md'
     - 'Ex #2: Echo': 'ex_20_echo.md'
     - 'Ex #3: Echo 2': 'ex_30_echo2.md'
+  - 'Chassis Topics':
+    - 'Execution Nodes': 'ref_executionnode.md'
+  - 'Infrastructure Documentation':
+    - 'index': 'infra_index.md'
+    - 'basicrun': 'infra_basicrun.md'
+    - 'argparse': 'infra_argparse.md'
+    - 'basicjsonpersistence': 'infra_basicjsonpersistence.md'
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -42,6 +51,12 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 copyright: |
   &copy; 2024 <a href="https://github.com/lionkimbro"  target="_blank" rel="noopener">Lion Kimbro</a>
+
