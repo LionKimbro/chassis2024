@@ -1,0 +1,1093 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../concepts/">
+      
+      
+        <link rel="next" href="../ex_20_echo/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Ex #1: Hello, world! - chassis2024 Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-hello-world-with-chassis-2024" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="chassis2024 Documentation" class="md-header__button md-logo" aria-label="chassis2024 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            chassis2024 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ex #1: Hello, world!
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Chassis 2024
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../intro/" class="md-tabs__link">
+        
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../concepts/" class="md-tabs__link">
+          
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ref_executionnode/" class="md-tabs__link">
+          
+  
+  Chassis Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../infra_index/" class="md-tabs__link">
+          
+  
+  Infrastructure Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="chassis2024 Documentation" class="md-nav__button md-logo" aria-label="chassis2024 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    chassis2024 Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chassis 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ex #1: Hello, world!
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ex #1: Hello, world!
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-hello-world-with-chassis-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to "Hello, World!" with Chassis 2024
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-basics-via-hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Basics via Hello, World!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-to-notice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Things to Notice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-chassis2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      import chassis2024
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-chassis2024basicrun" class="md-nav__link">
+    <span class="md-ellipsis">
+      import chassis2024.basicrun
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-chassis2024_spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding CHASSIS2024_SPEC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-and-the-run-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      "INTERFACES" and the "RUN" interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thought-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thought Experiments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thought Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thought-experiment-1-implementing-run-in-a-different-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thought Experiment #1: Implementing RUN in a different module.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thought-experiment-2-what-if-nobody-implements-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thought Experiment #2: What if nobody implements RUN?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t-junction" class="md-nav__link">
+    <span class="md-ellipsis">
+      T-Junction
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_20_echo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #2: Echo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_30_echo2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #3: Echo 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chassis Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chassis Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref_executionnode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Execution Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Infrastructure Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_basicrun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basicrun
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_argparse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    argparse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_basicjsonpersistence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basicjsonpersistence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Ex #1: Hello, world!</h1>
+
+<h3 id="introduction-to-hello-world-with-chassis-2024">Introduction to "Hello, World!" with Chassis 2024</h3>
+<p>どうぞ、お入りください！  (Please come in!)</p>
+<p>Welcome to the first steps in learning Chassis 2024! In this tutorial, we'll explore the basics of creating a foundational "Hello, World!" program using Chassis 2024. This journey will be your gateway to understanding how Chassis 2024 streamlines software development by seamlessly integrating various infrastructure components.</p>
+<p><strong>What We'll Cover:</strong></p>
+<ul>
+<li><strong>Getting Started:</strong> We'll begin by setting up a basic Chassis 2024 environment, ensuring you have everything you need to start coding.</li>
+<li><strong>Code Anatomy:</strong> Dive deep into the structure of a Chassis 2024 program. We'll dissect our 'Hello, World!' example, examining each part's role and how they work together.</li>
+<li><strong>Key Concepts:</strong> Understand the crucial elements of Chassis 2024, including CHASSIS2024_SPEC and interface implementations. This will build your foundation for more advanced topics in future tutorials.</li>
+</ul>
+<p>Through thought experiments at the end, we'll explore different scenarios, enhancing your understanding of how Chassis 2024 handles various situations.</p>
+<p><strong>By The End of This Tutorial:</strong></p>
+<p>You'll have a comprehensive understanding of setting up a basic Chassis 2024 project and the importance of its components, laying a solid foundation for tackling more complex scenarios with Chassis 2024.</p>
+<p>いくぜ!</p>
+<h3 id="understanding-the-basics-via-hello-world">Understanding the Basics via Hello, World!</h3>
+<p>Here's a "Hello, world!" program.</p>
+<p>Copy it into a file called <code>helloworld.py</code>, and run it.</p>
+<p>(If you don't have chassis2024 installed, run <code>pip install chassis2024</code> to install it, first.)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># helloworld.py</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span> <span class="nn">chassis2024</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span> <span class="nn">chassis2024.basicrun</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="s2">&quot;INTERFACES&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;RUN&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># interface: RUN</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">chassis2024</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="things-to-notice">Things to Notice</h3>
+<p>So, what are we looking at here?</p>
+<ul>
+<li><strong>imports</strong> -- There are two imports:</li>
+<li><code>import chassis2024</code></li>
+<li><code>import chassis2024.basicrun</code></li>
+<li><strong><code>CHASSIS2024_SPEC</code></strong> -- a dictionary, with one key:</li>
+<li><code>"INTERFACES"</code> -- a declaration of an interface binding, specifically, ...<ul>
+<li><strong><code>"RUN"</code></strong> -- the name of an interface, implemented by...</li>
+<li><code>sys.modules[__name__]</code> -- in Python, this means: "this module"</li>
+</ul>
+</li>
+</ul>
+<p>We'll talk about these piece by piece.</p>
+<p><img alt="visual breakdown of the code" src="https://github.com/LionKimbro/chassis2024/blob/main/img/helloworld_code_explanation.png?raw=true" /></p>
+<h3 id="import-chassis2024">import chassis2024</h3>
+<p>The first import is straightforward: <code>import chassis2024</code></p>
+<p>That loads the chassis2024 system into memory (<code>sys.modules</code> specifically).</p>
+<h3 id="import-chassis2024basicrun">import chassis2024.basicrun</h3>
+<p>The second import is a little more mysterious: <code>import chassis2024.basicrun</code></p>
+<p>What is <code>chassis2024.basicrun</code>?  It's one of the built-in infrastructure package that ships with chassis2024.</p>
+<p>Chassis 2024 programs are assembled from <strong>infrastructure</strong>.  Infrastructure basically means: a part of the system that has steps that must be followed, and that must be followed at particular times.</p>
+<p>What <code>chassis2024.basicrun</code> does, is that <em>after everything else is set up,</em> it will call a <em><code>run()</code></em> function.</p>
+<p>Q: "Which <em>run()</em> function will it run?"</p>
+<p>A: We'll get to that.</p>
+<p>Q: "How does it time things?"</p>
+<p>A: We'll get to that -- much <em>later.</em>  It's a critical question, and central to what chassis2024 is, and how it works, but I can't answer that right now.  Just trust that there are ways to control timings.  But it's a good question to bear in mind.</p>
+<p>The key things to understand right now, are that:</p>
+<ul>
+<li><code>import chassis2024</code> -- This line imports the Chassis 2024 system as a whole, and...</li>
+<li><code>import chassis2024.basicrun</code> -- ...this line includes the "basic run" infrastructure into our program's execution.</li>
+</ul>
+<p>If you've got just that, you're good for the next piece.</p>
+<h3 id="understanding-chassis2024_spec">Understanding CHASSIS2024_SPEC</h3>
+<p>This identifier plays a pivotal role in Chassis 2024.  When you define <code>CHASSIS2024_SPEC</code> in your module, you're essentially tagging it as a piece of "infrastructure."  This tag is a univresal feature across all infrastructure components in Chassis 2024, signaling to the system that your module plays a crucial role in the overall architecture.</p>
+<p>Here's how it works in the helloworld.py example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="s2">&quot;INTERFACES&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;RUN&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>The Chassis 2024 system sees a definition of CHASSIS2024_SPEC, and recognizes, "This module is <em>infrastructure</em>."</p>
+<p><em>All</em> infrastructure packages and modules define <code>CHASSIS2024_SPEC</code>.</p>
+<p>Yes: <code>chassis2024.basicrun</code> has a <code>CHASSIS2024_SPEC</code> block at the top of it's implementation, because it is an infrastructure package, and all infrastructure packages define <code>CHASSIS2024_SPEC</code>.</p>
+<p>The Chassis 2024 system doesn't stop with recognizing "this is infrastructure," though -- it also <em>uses</em> the data that <code>CHASSIS2024_SPEC</code> is assigned to.</p>
+<h3 id="interfaces-and-the-run-interface">"INTERFACES" and the "RUN" interface</h3>
+<p>Look again at the <code>CHASSIS2024_SPEC</code> definition:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="s2">&quot;INTERFACES&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;RUN&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>What does <code>chassis2024</code> make of <code>"INTERFACES"</code>?  And what is the <code>"RUN"</code> interface all about?</p>
+<p>This is a declaration to <code>chassis2024</code> binding "interfaces."  In particular, it's binding the <code>"RUN"</code> interface to the immediate module (<code>helloworld.py</code> -- referring to itself via <code>sys.modules[__name__]</code>).</p>
+<p><strong>Interfaces are how infrastructure finds infrastructure.</strong>  <code>helloworld.py</code>, in writing this, is declaring that it is implementing the <code>"RUN"</code> interface.  Whenever someone asks <code>chassis2024</code> for the <code>"RUN"</code> interface implementor, it'll return the <code>helloworld</code> module back to the caller.</p>
+<p><strong>Each interface can only be implemented by a single module.</strong>  Interfaces have a "zero or one" relationship with the modules that implement them:  Either it's implemented, or it's not, and if it's implemented, it's implemented by only one single module.</p>
+<p>If multiple modules attempt to implement the same interface, an exception is raised (<code>MultipleDefinitionsOfInterface</code>).</p>
+<p>What an interface is good for is <em>not</em> rigorously defined by Chassis 2024.  There are no schemas, no interface classes and no interface definition objects,  there are no systems for discovery, or for publishing.  Rather, an interface is simply defined by a string identifier (like "RUN"), and by the expectations of use between the infrastructure that uses an interface, and infrastructure that meets an interface, held in the mind of the programmer(s).</p>
+<p>When <code>chassis2024.basicrun</code> gets a hold of the thing at the other end of the <code>"RUN"</code> interface (<code>helloworld.py</code>, in this case,) it simply calls the <em><code>run()</code></em> function on it.  If it's not implemented, some sort of exception will be raised -- whatever exception is raised when you make a function call that isn't defined.  Your code will be in error.</p>
+<p><code>helloworld.py</code> does not want to be in error, hence it implements the <em><code>run()</code></em> function:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># interface: RUN</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="recap">Recap</h3>
+<p>OK, so -- you should be able to understand the program now:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">chassis2024</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">import</span> <span class="nn">chassis2024.basicrun</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="s2">&quot;INTERFACES&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;RUN&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># interface: RUN</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">chassis2024</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="visual breakdown of the code's structure" src="https://github.com/LionKimbro/chassis2024/blob/main/img/helloworld_structure.png?raw=true" /></p>
+<ul>
+<li>First, it imports the <code>chassis2024</code> system itself.</li>
+<li>Then, it imports the <code>chassis2024.basicrun</code> infrastructure.</li>
+<li>Then it declares itself to be infrastructure (by defining CHASSIS2024_SPEC).</li>
+<li>In that declaration, it also declares that it implements the RUN interface.</li>
+<li>Notably, it is the <em>sole implementer</em> of the RUN interface.  <strong>All interfaces are only ever implemented once and there are no exceptions to this rule.</strong></li>
+<li>Then it defines the <em><code>run()</code></em> function, which by the way is the expectation of the "RUN" interface, by the <code>chassis2024.basicrun</code> infrastructure.</li>
+<li>And then, finally it runs <code>chassis2024</code>.</li>
+<li>The first thing chassis2024 will do, is examine all imported modules, and identify infrastructure.<ul>
+<li>It will find <code>helloworld.py</code>.</li>
+<li>It will note down that <code>helloworld.py</code> implements the <code>"RUN"</code> interface.</li>
+<li>It will find <code>chassis2024.basicrun</code>.</li>
+</ul>
+</li>
+<li>It will then assemble the execution graph.  <a href="../ref_executionnode/">(You can skip ahead if you want to read more about the execution graph right away.)</a></li>
+<li>It will then execute all of the execution nodes.</li>
+<li>When the system is up (in the "UP" execution node,) <code>chassis2024.basicrun</code> will call the <code>"RUN"</code> interface's <em><code>run()</code></em> method ...</li>
+<li>...which means that <code>helloworld.run()</code> is what will be called.</li>
+</ul>
+<h3 id="thought-experiments">Thought Experiments</h3>
+<h4 id="thought-experiment-1-implementing-run-in-a-different-module">Thought Experiment #1: Implementing RUN in a different module.</h4>
+<p>Q: "What if I imported another module, that had a CHASSIS2024_SPEC in it, and <em>that module</em> implemented the "RUN" interface instead?"</p>
+<p>A: Then the <code>MultipleDefinitionsOfInterface</code> exception would be raised.</p>
+<p>Q: "Oh, okay, -- but, -- what if I had taken out the CHASSIS2024_SPEC declaration from <code>helloworld.py</code> itself?"</p>
+<p>A: That'd be okay then.  It'd call the <code>run()</code> function on the other module, then.</p>
+<h4 id="thought-experiment-2-what-if-nobody-implements-run">Thought Experiment #2: What if nobody implements RUN?</h4>
+<p>Q: "What if nobody implemented RUN?"</p>
+<p>A: When it comes time to get the RUN interface, which is required by basicspec, then it'll raise an <code>InterfaceUndefined</code> exception.</p>
+<p>Here's the relevant code from <code>chassis2024/basicrun/__init__.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">perform_execution_graph_node</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">UP</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="n">chassis2024</span><span class="o">.</span><span class="n">interface</span><span class="p">(</span><span class="n">RUN</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>...you can see it has "required=True" set, in it's call to resolve the interface, and then in <code>chassis2024/__init__.py</code>,  ...</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">interface</span><span class="p">(</span><span class="n">interface_name</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Access the object registered for a given interface.</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="sd">    If it doesn&#39;t exist, and it&#39;s not required, return None.</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="sd">    If it doesn&#39;t exist, and it&#39;s required, raises InterfaceUndefined.</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">found</span> <span class="o">=</span> <span class="n">chassis</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="k">if</span> <span class="n">required</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="k">raise</span> <span class="n">InterfaceUndefined</span><span class="p">(</span><span class="n">interface_name</span><span class="p">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="k">return</span> <span class="n">found</span>
+</code></pre></div>
+<p>See?  If <code>required</code> is <code>true</code>, (and it is in the call from the <code>basicrun</code> source code,) if the interface name can't be found, it raises <code>InterfaceUndefined("RUN")</code>, here.</p>
+<h3 id="t-junction">T-Junction</h3>
+<p>You arrive at a T-Junction.</p>
+<p>You can <a href="../">go left, to the Chassis 2024 title page.</a></p>
+<p>You can <a href="../ex_20_echo/">go right, to the next example tutorial...</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/lionkimbro"  target="_blank" rel="noopener">Lion Kimbro</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>

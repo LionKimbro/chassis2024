@@ -1,0 +1,1100 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ex_10_helloworld/">
+      
+      
+        <link rel="next" href="../ex_30_echo2/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Ex #2: Echo - chassis2024 Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#an-example-echo-echo-echo-eo-e" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="chassis2024 Documentation" class="md-header__button md-logo" aria-label="chassis2024 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            chassis2024 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ex #2: Echo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Chassis 2024
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../intro/" class="md-tabs__link">
+        
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../concepts/" class="md-tabs__link">
+          
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ref_executionnode/" class="md-tabs__link">
+          
+  
+  Chassis Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../infra_index/" class="md-tabs__link">
+          
+  
+  Infrastructure Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="chassis2024 Documentation" class="md-nav__button md-logo" aria-label="chassis2024 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    chassis2024 Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chassis 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_10_helloworld/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #1: Hello, world!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ex #2: Echo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ex #2: Echo
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#an-example-echo-echo-echo-eo-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      An Example: ECHO! Echo! echo! e..o!  e...!  ...!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noticing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noticing...
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chassis2024argparse-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      "chassis2024.argparse" infrastructure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-argparse-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing the ARGPARSE Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing the ARGPARSE Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quick-question-about-chassis2024interface-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      ...a quick question about chassis2024.interface calls...
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wait-a-second-what-about-the-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wait a second!  What about the "words"?!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thought-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thought Experiments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thought Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thought-experiment-1-other-infrastructure-registering-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thought Experiment #1: Other Infrastructure Registering Arguments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_30_echo2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #3: Echo 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chassis Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chassis Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref_executionnode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Execution Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Infrastructure Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_basicrun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basicrun
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_argparse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    argparse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_basicjsonpersistence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basicjsonpersistence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Ex #2: Echo</h1>
+
+<h3 id="an-example-echo-echo-echo-eo-e">An Example: ECHO! Echo! echo! e..o!  e...!  ...!</h3>
+<p>Here's an "Echo" program.</p>
+<p>We're building on top of knowledge from the last program, <code>helloworld.py</code>.</p>
+<p><a href="../ex_10_helloworld/">(I strongly urge you to read that one, before attempting this one.)</a>.</p>
+<p><code>echo.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">chassis2024</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">chassis2024.basicrun</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span> <span class="nn">chassis2024.argparse</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span> <span class="nn">chassis2024.words</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span> <span class="nn">chassis2024.argparse.words</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">this_module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">INTERFACES</span><span class="p">:</span> <span class="p">{</span><span class="n">RUN</span><span class="p">:</span> <span class="n">this_module</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                 <span class="n">ARGPARSE_CONFIGURE</span><span class="p">:</span> <span class="n">this_module</span><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># interface: ARGPARSE_CONFIGURE</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">def</span> <span class="nf">argparse_configure</span><span class="p">(</span><span class="n">parser</span><span class="p">):</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--echo&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;input string to echo&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;use -e to specify string to echo&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># interface: RUN</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">argparser</span> <span class="o">=</span> <span class="n">chassis2024</span><span class="o">.</span><span class="n">interface</span><span class="p">(</span><span class="n">ARGPARSE</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">argparser</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">echo</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="n">chassis2024</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="noticing">Noticing...</h3>
+<p>OK, things to notice:</p>
+<ul>
+<li><code>import chassis2024.argparse</code> -- More infrastructure: the <code>chassis2024.argparse</code> infrastructure.</li>
+<li><code>from &lt;...&gt;.words import *</code> -- "Words."  Lots of words.  We'll talk about it.</li>
+<li>interface <code>"ARGPARSE_CONFIGURE"</code></li>
+<li>interface <code>"RUN"</code> -- exactly as before</li>
+<li><code>argparser = chassis2024.interface(ARGPARSE, required=True)</code> -- this is interface access, and we'll talk about it</li>
+<li><code>argparser.args.echo</code> -- accessing the "echo" argument from the ArgumentParser.  Which we'll talk about.</li>
+<li><code>chassis2024.run()</code> invocation -- just like last time (and working exactly the same) -- we will <em>not</em> talk about this again.</li>
+</ul>
+<h3 id="chassis2024argparse-infrastructure">"chassis2024.argparse" infrastructure</h3>
+<p>The most important piece here, is the incorporation of the <code>chassis2024.argparse</code> infrastructure.</p>
+<p>What it does is -- after the modules have been cleared and reset <a href="../ref_executionnode/">(which you can learn more about in the section on the execution graph, -- you might want to just take a peek at, real quick,)</a> the argument parser is assembled, and then populated.  By "populated," I mean: arguments are defined on the argument parser.</p>
+<p>It's populated by calling the <code>ARGPARSE_CONFIGURE</code> interface implementation (which: in this case, is defined to be in <code>echo.py</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">INTERFACES</span><span class="p">:</span> <span class="p">{</span><span class="n">RUN</span><span class="p">:</span> <span class="n">this_module</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                 <span class="n">ARGPARSE_CONFIGURE</span><span class="p">:</span> <span class="n">this_module</span><span class="p">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Now, the argument parser, we must be clear, is <a href="https://docs.python.org/3/library/argparse.html">the Python "batteries included" argparse.ArgumentParser.</a>  Detailing it and how it works, is beyond the scope of this Chassis 2024 documentation.</p>
+<p>If you understand argparse.ArgumentParser, though, then this will be clear:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># interface: ARGPARSE_CONFIGURE</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">def</span> <span class="nf">argparse_configure</span><span class="p">(</span><span class="n">parser</span><span class="p">):</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--echo&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;input string to echo&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;use -e to specify string to echo&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>You might be wondering, though:  "How do you get at the arguments that were parsed out?"</p>
+<p>That's the very next subject.</p>
+<h3 id="accessing-the-argparse-interface">Accessing the ARGPARSE Interface</h3>
+<p>It's in this code, here:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">#interface: RUN</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">argparser</span> <span class="o">=</span> <span class="n">chassis2024</span><span class="o">.</span><span class="n">interface</span><span class="p">(</span><span class="n">ARGPARSE</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">argparser</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">echo</span><span class="p">)</span>
+</code></pre></div>
+<p>The first thing that the <em><code>echo.run()</code></em> function does, is load the <code>"ARGPARSE"</code> interface.</p>
+<p>The <code>chassis2024.argparse</code> package implements it.  The implementation of "ARGPARSE" essentially means that it has two identifiers defined on it:  <code>.parser</code>, and <code>.args</code>.  After the parse happens <a href="../ref_executionnode/">(and we'll talk about the execution nodes and timing,)</a> then <code>.args</code> has the arguments loaded into it, by the time <em><code>run()</code></em> is called.</p>
+<p>Since the <code>RUN</code> interface is called by <code>chassis2024.basicrun</code> as the last thing in the execution graph, it's guaranteed to be filled by this time.</p>
+<h4 id="a-quick-question-about-chassis2024interface-calls">...a quick question about chassis2024.interface calls...</h4>
+<p>Q: "I see that it says, <code>required=True</code>.  What if <code>"ARGPARSE"</code> had not been defined?"</p>
+<p>A: Well, the interface is bound by the <code>chassis2024.argparse</code> package.  But let's say it hadn't been.  Then when that call to <code>chassis2024.interface(ARGPARSE, required=True)</code> is called, it'll raise <code>InterfaceUndefined</code>.</p>
+<p>Q: "And what if required was <code>required=False</code>?"</p>
+<p>A: If it wasn't implemented, it'd just return None.</p>
+<p>But I want to be clear:  if you <code>import chassis2024.argparse</code>, the <code>ARGPARSE</code> interface will absolutely definitely be defined -- it'll be defined to that module itself.</p>
+<p>Q: "Could you just directly read chassis2024.argparse.args?"</p>
+<p>A: Yes, you can.  But one of the goals of the system is to make infrastructure swappable.  You could write a different argparse module, for your special needs.  Perhaps the ordering in your particular execution is really weird, and breaks some of the assumptions that the other infrastructure makes.  You had to make something special.  As long as you implement <code>.parser</code> and <code>.args</code> just the same, and declare your new module to meet the <code>ARGPARSE</code> interface, then the code should still work.  You just need to change the <code>import chassis2024.argparse</code> to <code>import &lt;your-code&gt;.argparse</code>, or whatever, and it'll work.</p>
+<p>Q: "That seems unlikely.  Are you sure you aren't just being pedantic?"</p>
+<p>A: Hm, ...  Maybe I am.  But this is how it makes sense to me to think about it.  Do what you like.</p>
+<h3 id="wait-a-second-what-about-the-words">Wait a second!  What about the "words"?!</h3>
+<p>OK.</p>
+<p>This is really basic.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">chassis2024.words</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">chassis2024.argparse.words</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div>
+<p>I'll show you what the text of <code>chassis2024.words</code> looks like, somewhat abbreviated:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Copyright 2024 Lion Kimbro</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="s2">&quot;CHASSIS2024_SPEC&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="o">...</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">INTERFACES</span> <span class="o">=</span> <span class="s2">&quot;INTERFACES&quot;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="o">...</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># common interfaces</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">RUN</span> <span class="o">=</span> <span class="s2">&quot;RUN&quot;</span>  <span class="c1"># basicrun: .run()</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">ARGPARSE</span> <span class="o">=</span> <span class="s2">&quot;ARGPARSE&quot;</span>  <span class="c1"># argparse: .parser, .args</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">PERSISTENCE_DATA</span> <span class="o">=</span> <span class="s2">&quot;PERSISTENCE_DATA&quot;</span>  <span class="c1"># basicjsonpersistence: .data, .save()</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="o">...</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># MAJOR STAGES</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="n">CLEAR</span> <span class="o">=</span> <span class="s2">&quot;CLEAR&quot;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="n">RESET</span> <span class="o">=</span> <span class="s2">&quot;RESET&quot;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">ARGPARSE</span> <span class="o">=</span> <span class="s2">&quot;ARGPARSE&quot;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">CONNECT</span> <span class="o">=</span> <span class="s2">&quot;CONNECT&quot;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="n">ACTIVATE</span> <span class="o">=</span> <span class="s2">&quot;ACTIVATE&quot;</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">UP</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="o">...</span>
+</code></pre></div>
+<p>See?  That's all it is.</p>
+<p>These variables (RUN, ARGPARSE, PERSISTENCE_DATA) are what I call "words."  (Or to use more technical jargon, these are <em>"symbols"</em>, their value is their own name, and the id is fixed in the string interning table.)</p>
+<p>I use "words" for three reasons:</p>
+<ul>
+<li>To save two whole characters in dictionary indexing -- it's <code>RUN</code>, rather than <code>"RUN"</code>.  I like it much better as <code>RUN</code>.</li>
+<li>To syntax highlight the common keys as identifiers, rather than as strings, which creates a different impression in my mind.</li>
+<li><em>The real reason:</em>  To detect errors earlier.  If I type "INTERFCES", rather than "INTERFACES", then there will just be a silent but horrifying omission -- "Hm, looks like the user didn't want to define any <em>INTERFACES</em> here...  Things won't work, and I'll have to trouble-shoot to find out why.  But if I use the <em>word</em> INTERFCES. rather than the <em>word</em> INTERFACES, then at import time, Python will say, "Hey, you're talking about an identifier INTERFCES that you haven't defined yet."  So it makes me feel immensely more secure to just define words for my dictionary keys.</li>
+</ul>
+<p><em>I have met people who don't like any of this.</em>  They say, "It's Python, it's a dictionary, it's supposed to have string keys..."  "You should use a class and an object and attributes, if you want to do this..."  But then, even if I do, I still have the same problem -- because Python will let you assign to foo.interfces, no problem, ...  ANYWAYS.  If you don't like it, don't import words, and just ignore them.  You can program using just strings for keys if you like, everything will work fine.</p>
+<h3 id="recap">Recap</h3>
+<p>So, as before, a revisiting of the <code>echo.py</code> example as a totality:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">import</span> <span class="nn">chassis2024</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">import</span> <span class="nn">chassis2024.basicrun</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kn">import</span> <span class="nn">chassis2024.argparse</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kn">from</span> <span class="nn">chassis2024.words</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kn">from</span> <span class="nn">chassis2024.argparse.words</span> <span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">this_module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">INTERFACES</span><span class="p">:</span> <span class="p">{</span><span class="n">RUN</span><span class="p">:</span> <span class="n">this_module</span><span class="p">,</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>                 <span class="n">ARGPARSE_CONFIGURE</span><span class="p">:</span> <span class="n">this_module</span><span class="p">}</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">}</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1"># interface: ARGPARSE_CONFIGURE</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="k">def</span> <span class="nf">argparse_configure</span><span class="p">(</span><span class="n">parser</span><span class="p">):</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--echo&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;input string to echo&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>                        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;use -e to specify string to echo&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="c1"># interface: RUN</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    <span class="n">argparser</span> <span class="o">=</span> <span class="n">chassis2024</span><span class="o">.</span><span class="n">interface</span><span class="p">(</span><span class="n">ARGPARSE</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">argparser</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">echo</span><span class="p">)</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>    <span class="n">chassis2024</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>まず、("first off,") we import the <code>chassis2024</code> system itself.</li>
+<li>Then the infrastructure used: <code>chassis2024.basicrun</code>, and <code>chassis2024.argparse</code>.</li>
+<li>Then words for the modules, since there is specialized language here.</li>
+<li>Then we define the <code>CHASSIS2024_SPEC</code>, and in particular, insisting that RUN and ARGPARSE_CONFIGURE interfaces are implemented by <code>echo.py</code>.</li>
+<li>And again, I re-emphasize that interfaces can only be implemented by a single module.  This isn't <a href="https://pluggy.readthedocs.io/en/stable/">pluggy.</a>  This isn't <a href="https://pypi.org/project/zope.component/">Zope components.</a>  This isn't any kind of <a href="https://en.wikipedia.org/wiki/Software_bus">bus</a> or component or plug-in system.  It's just a system for sequencing critical infrastructure for setup and teardown.</li>
+<li>Then the ARGPARSE_CONFIGURE interface is implemented.  The parser is configured in this way.</li>
+<li>Then the RUN interface is implemented.</li>
+<li>The first thing it does, is located the argparser.</li>
+<li>Then it drills down for the <code>args</code>, and pulls out the <code>echo</code> argument.</li>
+<li>Then it prints it.</li>
+<li>And then the <code>chassis2024</code> system is run.</li>
+</ul>
+<h3 id="thought-experiments">Thought Experiments</h3>
+<p>Feel free to skip, but this can give you some insight into the inner logic behind chassis2024.</p>
+<h4 id="thought-experiment-1-other-infrastructure-registering-arguments">Thought Experiment #1: Other Infrastructure Registering Arguments</h4>
+<p>Q: "Hey, can other pieces of infrastructure register themselves on the argument parser?"</p>
+<p>A: ... Yes...</p>
+<p>Q: "For example, if I made a piece of infrastructure that pulled some data from a remote host and port, it could collect the --host and --port via <code>chassis2024.argparse</code>, right?"</p>
+<p>A: ... Yes...</p>
+<p>Q: "Why so cagey?  Isn't this exactly what the system was made for?"</p>
+<p>A: ...</p>
+<p>A: Okay, so, YES, and NO.</p>
+<p>Q: ?</p>
+<p>A: What I mean is:  YES, you absolutely can do that.  And the system is set up to give you that freedom, to do it.  You can define an execution node, after the argument parser is defined, and before it performs it's parse, and you can automatically register arguments on it, by reaching out to it by interface, but, ...</p>
+<p>Q: "-- but what?"</p>
+<p>A: It was important to me to make sure that the programmer has ultimate control over how the ArgumentParser presents to the user.  I wanted programmers to be able to use pre-existing infrastructure, and yet not have to compromise on the presentation to the user.  I mean, the user <em>is</em> the <em>programmer's</em> user, right?  Not necessarily the <em>infrastructure programmer's</em> user.  And the ArgumentParser -- because it can display --help, and because the options themselves are defined on it -- I wanted to make sure that that was all in the control of the programmer.</p>
+<p>Q: "Oh?"</p>
+<p>A: ...but I still wanted the programmer to be able to use "defaults" if they were okay with it.  So I settled on a compromise.</p>
+<p>Q: "What was that?"</p>
+<p>A: I defined <code>argparse_configure(parser)</code> in a sensible way on the infrastructure, but I didn't bind that functionality to the execution graph, or to any given interface.  If the programmer wants to do that, the program can absolutely do that, via <code>INTERFACES: {ARGPARSE_CONFIGURE: &lt;some_infrastructure_module&gt;}</code>.  Or the programmer can just manually call (for example:) <code>&lt;some_infrastructure_module&gt;.argparse_configure(parser)</code> from their own ARGPARSE_CONFIGURE implementation, and get the benefit of the parser registration.  You'll see that in the next example, by the way.</p>
+<p>Q: "OK.  So, you <em>can</em> do automatic <code>parser.add_argument</code> registrations, but you made it just slightly less automatic, because you think most programmer's will want to tightly control how the <code>ArgumentParser</code> is configured."</p>
+<p>A: Yeah basically that's it.</p>
+<p>Q: "I notice that, because only one interface can implement ARGPARSE_CONFIGURE, that ..."</p>
+<p>A: Yeah, only one would be able to do it.</p>
+<p>Q: "Isn't that a problem?"</p>
+<p>A: Yes?  And I do think about integrating <a href="https://pluggy.readthedocs.io/en/stable/">pluggy</a> into chassis2025, or chassis2026 -- whenever the next version of chassis might be.  But in another way, I think it's saving our hides.</p>
+<p>Q: What do you mean?</p>
+<p>A: Well, it depends on Kahn's algorithm.  With a different or rejiggered execution of the scheduler, it might run the argument parsing configuration in a different order.  If the only thing is, "Run this before parsing the arguments," and you had two pieces of infrastructure both wanting to add their parameters to the argument parser, then sometimes you might run it and get the presentation in one order, and other times get the presentation in another order...  Since it's user-facing, I prefer to keep it explicit.  And keeping it explicit means: Just use one single implementation of the ARGPARSE_CONFIGURE interface, and then explicitly lay down the order in which the arguments are added.  Call into the packages manually, and say, "Add your arguments, now!", in a specific order.</p>
+<p>Q: If you are going to do everything explicitly, then why did you even set up this system like chassis2024, which is about flexibility?</p>
+<p>A: I wanted both.  I wanted to be able to say, "Here are a bunch of pieces of infrastructure, work out how to make them cooperate, time-wise," but I also wanted to be able to clarify, "Here's the order that you should do THESE THINGS in."  I just want to be able to rapidly compose software from parts.  But I also recognize that the steps and promises involved in putting a running system together, and then decomposing the same system, are critically important to the design and success of that system.  And by the way, you CAN fully automate the assembly of arguments in an argument parser, in this system: just build an infrastructure package, have it look through sys.modules at the right time, find infrastructure and find implementations of a particular function, and call it.  It'll work.  I just happen to think that the ArgumentParser is user-facing and thus needs to be treated more delicately.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/lionkimbro"  target="_blank" rel="noopener">Lion Kimbro</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>

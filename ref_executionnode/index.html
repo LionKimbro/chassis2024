@@ -1,0 +1,1232 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ex_30_echo2/">
+      
+      
+        <link rel="next" href="../infra_index/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Execution Nodes - chassis2024 Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#execution-nodes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="chassis2024 Documentation" class="md-header__button md-logo" aria-label="chassis2024 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            chassis2024 Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Execution Nodes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Chassis 2024
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../intro/" class="md-tabs__link">
+        
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../concepts/" class="md-tabs__link">
+          
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Chassis Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../infra_index/" class="md-tabs__link">
+          
+  
+  Infrastructure Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="chassis2024 Documentation" class="md-nav__button md-logo" aria-label="chassis2024 Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    chassis2024 Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chassis 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_10_helloworld/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #1: Hello, world!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_20_echo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #2: Echo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex_30_echo2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ex #3: Echo 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Chassis Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chassis Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Execution Nodes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Execution Nodes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#execution-nodes-as-stages-in-software-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Nodes as Stages in Software Lifecycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution Nodes as Stages in Software Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-concrete-example-integrating-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Concrete Example: Integrating Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceptual-use-of-exection-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conceptual Use of Exection Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceptual Use of Exection Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#association-of-execution-nodes-with-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Association of Execution Nodes with Packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaration-of-execution-node-sequences-by-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration of Execution Node Sequences by Packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-package-association-per-execution-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Package Association per Execution Node
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-graph-assembly-and-execution-by-chassis-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Graph Assembly and Execution by Chassis 2024
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-use-of-execution-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Use of Execution Nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Use of Execution Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition-of-chassis2024_spec-by-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition of CHASSIS2024_SPEC by Packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-of-nodes-by-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution of Nodes by Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution of Nodes by Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role-of-the-perform_execution_graph_node-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role of the perform_execution_graph_node Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-node-association" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package-Node Association
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-execution-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Execution Graph
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Execution Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLEAR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      RESET
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#argparse" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARGPARSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      CONNECT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACTIVATE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#up" class="md-nav__link">
+    <span class="md-ellipsis">
+      UP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teardown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Teardown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mechanism-of-teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mechanism of Teardown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback Registration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-order-of-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution Order of Callbacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teardown-during-unhandled-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teardown During Unhandled Exceptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Infrastructure Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_basicrun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basicrun
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_argparse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    argparse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_basicjsonpersistence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basicjsonpersistence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="execution-nodes">Execution Nodes</h1>
+<p>Chassis 2024 is a Python framework designed to simplify the reuse of infrastructure components.  At the heart of Chassis 2024 lies the concept of execution nodes arranged into an execution graph.  These elements are fundamental to understanding how Chassis 2024 orchestrates the flow of operations within its framework, ensuring that every component interacts seamlessly and effectively.</p>
+<p>This document aims to explain the concepts of execution nodes and the execution graph. Whether you are integrating new infrastructure, developing modules, or simply seeking to understand the inner workings of Chassis 2024, this guide will serve as your roadmap to understanding the role of execution nodes and the execution graph in the system.</p>
+<p>Here's what the document covers:</p>
+<ul>
+<li>
+<p><strong>Execution Nodes as Stages in Software Lifecycle:</strong> This section delves into what execution nodes are and their significance in Chassis 2024.</p>
+</li>
+<li>
+<p><strong>Conceptual Use of Execution Nodes:</strong> Focuses on the practical applications of execution nodes. It explores their potential uses in a conceptual manner, without delving into the specific coding details.</p>
+</li>
+<li>
+<p><strong>Technical Use of Execution Nodes:</strong> This part gets into the nitty-gritty, detailing how execution nodes and the execution graph are utilized in code.</p>
+</li>
+<li>
+<p><strong>Default Execution Graph:</strong> An overview of the standard execution graph provided with Chassis 2024.</p>
+</li>
+<li>
+<p><strong>Teardown:</strong> Although the execution graph primarily facilitates reaching a running state, this section discusses the process of teardown, highlighting how decommissioning is scheduled.</p>
+</li>
+</ul>
+<h2 id="execution-nodes-as-stages-in-software-lifecycle">Execution Nodes as Stages in Software Lifecycle</h2>
+<p>In Chassis 2024, the execution graph is a dynamic and extensible framework, essential for orchestrating the flow of your application. It's designed to be effortlessly augmented by infrastructure modules, allowing developers to specify execution constraints like 'run after the "clearing" node' and 'run before the "argument parsing" node'. This extensibility is key; it means the execution graph can adapt and grow as new functionalities are integrated, without burdening the developer with the complexity of managing dependencies. Each addition is seamlessly woven into the existing structure, provided it doesn't create a cycle, which Chassis 2024 automatically checks for.</p>
+<h3 id="a-concrete-example-integrating-infrastructure">A Concrete Example: Integrating Infrastructure</h3>
+<p>Consider a scenario in Chassis 2024 where your program has two fundamental infrastructure requirements:</p>
+<ol>
+<li>Parsing Command Line Arguments</li>
+<li>Reading from a Persistence File</li>
+</ol>
+<p>Suppose you want to enable specifying the persistence file's location via command line.  The necessary sequence of operations is:</p>
+<ol>
+<li>Initialize an <code>argparse.ArgumentParser</code>.</li>
+<li>Add a command line option to the parser for specifying the persistence file.</li>
+<li>Process the command line arguments using the parser.</li>
+<li>Access the persistence file.</li>
+</ol>
+<p>In Chassis 2024, this workflow is organized within the execution graph:</p>
+<ol>
+<li>The argument parsing infrastructure introduces a node "CLEAR_ARGPARSE," which initializes a new <code>argparse.ArgumentParser</code>.  This node is configured to execute after "RESET" but before "ARGPARSE".</li>
+<li>The persistence file infrastructure adds a node, "READ_PERSISTENCE", responsible for accessing the persistence file.  This node is set to follow "ARGPARSE" and precede "ACTIVATE."</li>
+</ol>
+<p>(Note: The default built-in nodes, titled CLEAR, RESET, ARGPARSE, CONNECT, ACTIVATE, and UP, are detailed later in this document.)</p>
+<p>In this manner, Chassis 2024 faciliates the easy expansion of the execution graph with new nodes like "CLEAR_ARGPARSE" and "READ_CONFIG", enhancing functionality while maintaining a straightforward and manageable workflow.</p>
+<h2 id="conceptual-use-of-exection-nodes">Conceptual Use of Exection Nodes</h2>
+<h3 id="association-of-execution-nodes-with-packages">Association of Execution Nodes with Packages</h3>
+<p>In Chassis 2024, each execution node is typically associated with a specific package. When the system reaches an execution node, if it's associated with a package, that package's perform_execution_graph_node function is invoked with the execution node's name. This function performs the actions defined for that stage of the application's lifecycle.</p>
+<h3 id="declaration-of-execution-node-sequences-by-packages">Declaration of Execution Node Sequences by Packages</h3>
+<p>Packages in Chassis 2024 declare their own sequences of execution nodes. This declaration includes specifying which nodes they will respond to and perform actions for. This mechanism allows packages to integrate their specific functionalities into the broader application flow.</p>
+<h3 id="single-package-association-per-execution-node">Single Package Association per Execution Node</h3>
+<p>To maintain clarity and order within the system, each execution node can only be associated with one package. If multiple packages attempt to associate with the same execution node, Chassis 2024 raises a MultiplePackagesHandlingExecutionGraphNode exception. This rule ensures a clear and unambiguous order of operations.</p>
+<h3 id="execution-graph-assembly-and-execution-by-chassis-2024">Execution Graph Assembly and Execution by Chassis 2024</h3>
+<p>Chassis 2024 automatically assembles the execution graph based on the data collected from all packages, including their execution nodes and sequences. It then performs a topological sort of the graph to determine the execution order, ensuring that all dependencies and prerequisites are met.</p>
+<h2 id="technical-use-of-execution-nodes">Technical Use of Execution Nodes</h2>
+<h3 id="definition-of-chassis2024_spec-by-packages">Definition of CHASSIS2024_SPEC by Packages</h3>
+<p>Infrastructure packages in Chassis 2024 define a variable CHASSIS2024_SPEC, which declare the packages participation within the Chassis 2024 system.  This declaration includes keys like EXECUTES_GRAPH_NODES and EXECUTION_GRAPH_SEQUENCES, determining the execution nodes the package responds to and the sequences it adds to the overall execution graph.</p>
+<p>Consider the following example from the <a href="../infra_basicjsonpersistence/">basicjsonpersistence</a> package definition:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">CHASSIS2024_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># Nodes this package will execute</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">EXECUTES_GRAPH_NODES</span><span class="p">:</span> <span class="p">[</span><span class="n">CLEAR_BASICJSONPERSISTENCE</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                           <span class="n">RESET_BASICJSONPERSISTENCE</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                           <span class="n">READ_BASICJSONPERSISTENCE</span><span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Sequences of nodes in the execution graph</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">EXECUTION_GRAPH_SEQUENCES</span><span class="p">:</span> <span class="p">[(</span><span class="n">CLEAR</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                 <span class="n">CLEAR_BASICJSONPERSISTENCE</span><span class="p">,</span>  <span class="c1"># Node triggered by CLEAR</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                                 <span class="n">RESET</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                                 <span class="n">RESET_BASICJSONPERSISTENCE</span><span class="p">,</span>  <span class="c1"># Node triggered by RESET</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                                 <span class="n">ARGPARSE</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                                 <span class="n">READ_BASICJSONPERSISTENCE</span><span class="p">,</span>  <span class="c1"># Node triggered by ARGPARSE</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                                 <span class="n">READ_PERSISTENCE</span><span class="p">,</span>  <span class="c1"># Signal completion of persistence load</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                                 <span class="n">ACTIVATE</span><span class="p">)],</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="o">...</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>The EXECUTES_GRAPH_NODES key associates the package with the specific nodes: CLEAR_BASICJSONPERSISTENCE, RESET_BASICJSONPERSISTENCE, and READ_BASICJSONPERSISTENCE.  This list defines the nodes that this package is responsible for within the execution graph.</p>
+<p>In the EXECUTION_GRAPH_SEQUENCES sub-key, the specified sequence (<code>CLEAR</code>, <code>CLEAR_BASICJSONPERSISTENCE</code>, <code>RESET</code>, etc.) outlines the order in which nodes should be activated. This sequence ensures a structured flow of execution. The tuple within the list allows for the definition of multiple sequences, providing flexibility and accommodating complex execution flows.</p>
+<p>In summary, defining CHASSIS2024_SPEC ensures that infrastructure components in Chassis 2024 execute their instructions at the correct times.</p>
+<h3 id="execution-of-nodes-by-packages">Execution of Nodes by Packages</h3>
+<p>One might wonder, "How exactly is an execution node activated within Chassis 2024?" The answer lies in the well-defined interaction between execution nodes and the packages responsible for them.</p>
+<h4 id="role-of-the-perform_execution_graph_node-function">Role of the perform_execution_graph_node Function</h4>
+<p>Each infrastructure package defines a critical function: <code>perform_execution_graph_node(execution_graph_node)</code>. This function is the heart of the node execution process.</p>
+<ul>
+<li>
+<p><strong>Function Responsibility:</strong> This function is responsible for executing the actions assigned to a specific execution nodes. When an execution node is reached in the graph, Chassis 2024 calls this function from the associated package.</p>
+</li>
+<li>
+<p><strong>Node-Specific Logic:</strong> Inside this function, there is logic to handle different nodes. This is typically implemented using conditional statements, which check the name of the execution node passed as an argument and execute the corresponding actions.</p>
+</li>
+</ul>
+<p>For instance, consider the following snippet from the <a href="../infra_basicjsonpersistence/">basicjsonpersistence</a> package:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">perform_execution_graph_node</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">CLEAR_BASICJSONPERSISTENCE</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="c1"># Actions for clearing basic JSON persistence (x1 execution)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="o">...</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="n">RESET_BASICJSONPERSISTENCE</span><span class="p">:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="c1"># Actions for resetting basic JSON persistence</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="o">...</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="n">READ_BASICJSONPERSISTENCE</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="c1"># Actions for reading basic JSON persistence</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="o">...</span>
+</code></pre></div>
+<p>In this example, the function perform_execution_graph_node contains specific actions for each of the execution nodes like CLEAR_BASICJSONPERSISTENCE, RESET_BASICJSONPERSISTENCE, and READ_BASICJSONPERSISTENCE.</p>
+<h4 id="package-node-association">Package-Node Association</h4>
+<ul>
+<li>
+<p><strong>Tracking Responsibility:</strong> Chassis 2024 maintains a mapping of which package responds to each execution node. This is crucial for orchestrating the execution flow.</p>
+</li>
+<li>
+<p><strong>Execution Mechanics:</strong> When the execution graph reaches a particular node, Chassis 2024 looks up the package associated with that node. It then locates the <code>perform_execution_graph_node</code> function within that package and invokes it, passing the name of the execution node as an argument.</p>
+</li>
+</ul>
+<p>This systematic approach ensures that each execution node is handled by its respective package in a structured and orderly fashion, contributing to the streamlined operation of the overall system.</p>
+<h2 id="default-execution-graph">Default Execution Graph</h2>
+<p>Chassis 2024 comes with a predefined execution graph, which forms the backbone of its operational structure. This graph comprises several key nodes: CLEAR, RESET, ARGPARSE, CONNECT, ACTIVATE, and UP. Each node serves a specific purpose in the lifecycle of an application, ensuring a structured and efficient process flow. Below is a detailed description of each default node in the execution graph:</p>
+<pre class="mermaid"><code>graph TD
+  clr["CLEAR"];
+  reset["RESET"];
+  argparse["ARGPARSE"];
+  connect["CONNECT"];
+  activate["ACTIVATE"];
+  up["UP"];
+  clr --&gt; reset --&gt; argparse --&gt; connect --&gt; activate --&gt; up;</code></pre>
+<h3 id="clear">CLEAR</h3>
+<p>The CLEAR node is the initial stage of the execution graph. It's designed for one-time setup tasks that are essential at the beginning of an application's lifecycle. Activities in this node include initializing internal data structures and pre-generating values that will remain constant throughout the operation of the application, such as pre-calculated trigonometric tables. This setup ensures that subsequent nodes operate on a well-prepared and stable groundwork.</p>
+<h3 id="reset">RESET</h3>
+<p>Following CLEAR is the RESET node. While CLEAR is for one-time initializations, RESET focuses on setups that might need to be repeated, particularly in testing scenarios. This node allows for the reinitialization of variables and states that may need resetting multiple times during an application's testing lifecycle. RESET is crucial for ensuring the application can return to a known state, which is especially important for iterative development and testing processes.</p>
+<h3 id="argparse">ARGPARSE</h3>
+<p>The ARGPARSE node is dedicated to processing command line arguments. In this stage, the application parses any input parameters it requires before proceeding further. This ensures that all necessary inputs are correctly interpreted and available for use by the application, enabling it to adapt its behavior based on user inputs or configuration directives provided at launch.</p>
+<h3 id="connect">CONNECT</h3>
+<p>At the CONNECT node, the application establishes connections to necessary external resources. This could involve a wide range of activities, such as loading configuration files, reading necessary data from files, or establishing network connections with external systems and services. The CONNECT node is critical for integrating the application with the outside world and for accessing resources that are essential for its operation.</p>
+<h3 id="activate">ACTIVATE</h3>
+<p>Once all the necessary resources are connected, the ACTIVATE node takes over. This node is responsible for setting up the internal state of the application, which may involve cross-referencing and integrating data from multiple sources. It's also the stage where user interfaces are typically initialized, including graphical user interfaces (GUIs) or other interaction elements. ACTIVATE essentially prepares the application to start its main functionality.</p>
+<h3 id="up">UP</h3>
+<p>Finally, the UP node represents the application's active running state. Here, the core functionalities of the program are executed. This is where the application performs its intended tasks, whether it's processing data, responding to user inputs, or any other primary operations for which the application was designed. The UP node is where the application delivers its value to the user.</p>
+<h2 id="teardown">Teardown</h2>
+<p>Teardown is a crucial phase in the lifecycle of an application using Chassis 2024. It handles the orderly and safe shutdown or cleanup of processes that have been initiated by various execution nodes. This phase becomes especially important in maintaining the integrity and consistency of the application, particularly in scenarios where an abrupt termination or an unexpected exception occurs.</p>
+<h3 id="mechanism-of-teardown">Mechanism of Teardown</h3>
+<p>During the execution of nodes, it's common for certain setup or initialization actions to require corresponding cleanup actions. To manage this, Chassis 2024 provides a mechanism where nodes can register teardown callbacks through the <code>chassis.call_before_termination(callback)</code> function.</p>
+<h3 id="callback-registration">Callback Registration</h3>
+<ul>
+<li><strong>Function Usage:</strong> Execution nodes can call <code>chassis.call_before_termination(callback)</code> to register a callback function for teardown activities.</li>
+<li><strong>Callback Function:</strong> The callback function provided should take no arguments, and its return value is ignored.</li>
+</ul>
+<p>Here's an example snippet from the <a href="../infra_basicjsonpersistence/">basicjsonpersistence</a> package:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">perform_execution_graph_node</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="o">...</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">CLEAR_BASICJSONPERSISTENCE</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="o">...</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="n">RESET_BASICJSONPERSISTENCE</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="o">...</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="n">READ_BASICJSONPERSISTENCE</span><span class="p">:</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="c1"># Make sure that while closing down, that the data is saved.</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="hll">        <span class="n">chassis2024</span><span class="o">.</span><span class="n">chassis</span><span class="o">.</span><span class="n">call_before_termination</span><span class="p">(</span><span class="n">_do_final_save</span><span class="p">)</span>
+</span><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="o">...</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="hll"><span class="k">def</span> <span class="nf">_do_final_save</span><span class="p">():</span>
+</span><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="o">...</span>
+</code></pre></div>
+<h3 id="execution-order-of-callbacks">Execution Order of Callbacks</h3>
+<ul>
+<li><strong>Reverse Order Execution:</strong> These callbacks are executed in the reverse order of their registration. This reverse order ensures that the teardown process mirrors the setup process, maintaining a logical and efficient order of operations.</li>
+<li><strong>Example Scenario:</strong> If an execution node A registers a callback cb_A, and a subsequent node B registers cb_B, the teardown process will first call cb_B and then cb_A.</li>
+</ul>
+<h3 id="teardown-during-unhandled-exceptions">Teardown During Unhandled Exceptions</h3>
+<ul>
+<li><strong>Exception Handling:</strong> In the event of an unhandled exception occurring during the execution of nodes, Chassis 2024 ensures that the teardown process is still reliably executed.</li>
+<li><strong>Callback Invocation:</strong> All registered callbacks are invoked in reverse order, just as they would be in a normal termination scenario. This ensures that even in the face of unexpected interruptions, the application can perform necessary cleanup, reducing the risk of corrupted states or resources being left in an indeterminate state.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/lionkimbro"  target="_blank" rel="noopener">Lion Kimbro</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
