@@ -1,6 +1,7 @@
 # Chassis 2024
 
-Automatically sequence infrastructure initialization and teardown.
+Chassis 2024 is a general purpose Python framework for integrating software infrastructure.  The goal of Chassis 2024 is to make reusing and combining essential infrastructure components as straightforward as possible.
+
 
 #### Installation
 
@@ -8,9 +9,12 @@ Automatically sequence infrastructure initialization and teardown.
 pip install chassis2024
 ```
 
-### Brief Explanation
+### Documentation
 
-*(This is just a teaser.  [Read the github.io pages for more details and a full tutorial.](https://lionkimbro.github.io/chassis2024/))*
+[Chassis 2024 is documented on github.io.](https://lionkimbro.github.io/chassis2024/)
+
+
+### Longer Explanation
 
 The idea of chassis2024 to make it so that you quickly reuse infrastructure.
 
@@ -26,63 +30,7 @@ I wanted to make it trivial to combine infrastructure like these, together.
 The central challenge was making sure that infrastructure steps are followed in the correct order.
 
 
-### An Example: Hello, world!
-
-Here's a "Hello, world!" program:
-
-```
-import sys
-
-import chassis2024
-import chassis2024.basicrun
-
-
-CHASSIS2024_SPEC = {
-    "INTERFACES": {"RUN": sys.modules[__name__]}
-}
-
-
-# interface: RUN
-def run():
-    print("Hello, world!")
-
-
-if __name__ == "__main__":
-    chassis2024.run()
-```
-
-## Execution Nodes
-
-Chassis 2024 infrastructure positions itself  within an execution graph.
-
-By default, the execution graph is very basic:
-
-* #1 **CLEAR** -- the program begins
-* #2 **RESET** -- the program is initialized
-* #3 **ARGPARSE** -- Command Line arguments are parsed
-* #4 **CONNECT** -- files are loaded, resources are connected
-* #5 **ACTIVATE** -- user interface systems are activated
-* #6 **UP** -- the program is running, main loop operations commense
-
-This built-in system is fixed, but there is no default implementation, and it is very flexible, because Chassis 2024 infrastructure can extend the graph via module declarations.
-
-An example from the ```chassis2024.argparse``` package:
-
-```
-CHASSIS2024_SPEC = {
-    EXECUTES_GRAPH_NODES: [CLEAR_ARGPARSE, RESET_ARGPARSE, ARGPARSE],
-    EXECUTION_GRAPH_SEQUENCES: [(CLEAR, CLEAR_ARGPARSE, RESET, RESET_ARGPARSE, ARGPARSE)],
-    INTERFACES: {ARGPARSE: sys.modules[__name__]}
-}
-```
-
-## Interfaces
-
-The infrastructure pieces glue to one another through "interfaces."  Any object or module can be at the end of an interface, but ***only one*** thing can implement a given interface.
-
-Similarly, each execution node can activate ***only one*** function.
-
-## More Complex Example
+## An Example
 
 ```
 
@@ -139,3 +87,4 @@ def run():
 if __name__ == "__main__":
     chassis2024.run()
 ```
+
